@@ -268,3 +268,10 @@
     margin-right: 0.5rem;
   }
 }
+.mapContainer {
+  height: 400px;
+  width: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}

@@ -233,10 +233,28 @@ export default function Home() {
           </div>
 
           <div className={styles.impactVisual}>
-            <div className={styles.communityIllustration}>
-              <div className={styles.illustrationElements}></div>
-            </div>
-          </div>
+  <div className={styles.communityIllustration}>
+    {/* 🌿 Vibrant backdrop illustration */}
+    <img
+      src="/images/trace-community.png"
+      alt="Community sharing food across green farms"
+      className={styles.impactBackdrop}
+    />
+
+    {/* 📍 Animated donation route pins */}
+    <div className={`${styles.mapPin} ${styles.pin1}`}></div>
+    <div className={`${styles.mapPin} ${styles.pin2}`}></div>
+    <div className={`${styles.mapPin} ${styles.pin3}`}></div>
+    <div className={`${styles.mapPin} ${styles.pin4}`}></div>
+
+    {/* Optional overlay tagline */}
+    <div className={styles.visualOverlayText}>
+      <h3>Connecting Farms, Food, and Futures</h3>
+      <p>Together, we make food security a reality.</p>
+    </div>
+  </div>
+</div>
+
 
           <div className={styles.impactCta}>
             <Link href="/impact" className="btn-primary btn-large">

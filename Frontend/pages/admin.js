@@ -18,6 +18,7 @@ export default function AdminDashboard() {
         <div className={styles.container}>
           <h1 className={styles.pageTitle}>Admin Dashboard</h1>
 
+          {/* Tabs */}
           <div className={styles.tabs}>
             <button
               className={`${styles.tab} ${
@@ -45,36 +46,40 @@ export default function AdminDashboard() {
             </button>
           </div>
 
+          {/* Users Section */}
           {activeTab === "users" && (
             <div className={styles.tabContent}>
               <div className={styles.statsGrid}>
-                <div className={styles.statCard}>
-                  <div className={styles.statIcon}>
-                    <i className="fas fa-user-tie"></i>
+                {[
+                  {
+                    icon: "fas fa-user-tie",
+                    label: "Farmers",
+                    value: adminUsers.farmers,
+                  },
+                  {
+                    icon: "fas fa-industry",
+                    label: "Processors",
+                    value: adminUsers.processors,
+                  },
+                  {
+                    icon: "fas fa-hands-helping",
+                    label: "NGOs",
+                    value: adminUsers.ngos,
+                  },
+                ].map((item, idx) => (
+                  <div key={idx} className={styles.statCard}>
+                    <div className={styles.statIcon}>
+                      <i className={item.icon}></i>
+                    </div>
+                    <div className={styles.statValue}>{item.value}</div>
+                    <div className={styles.statLabel}>{item.label}</div>
                   </div>
-                  <div className={styles.statValue}>{adminUsers.farmers}</div>
-                  <div className={styles.statLabel}>Farmers</div>
-                </div>
-                <div className={styles.statCard}>
-                  <div className={styles.statIcon}>
-                    <i className="fas fa-industry"></i>
-                  </div>
-                  <div className={styles.statValue}>
-                    {adminUsers.processors}
-                  </div>
-                  <div className={styles.statLabel}>Processors</div>
-                </div>
-                <div className={styles.statCard}>
-                  <div className={styles.statIcon}>
-                    <i className="fas fa-hands-helping"></i>
-                  </div>
-                  <div className={styles.statValue}>{adminUsers.ngos}</div>
-                  <div className={styles.statLabel}>NGOs</div>
-                </div>
+                ))}
               </div>
             </div>
           )}
 
+          {/* Blockchain Logs Section */}
           {activeTab === "blockchain" && (
             <div className={styles.tabContent}>
               <div className={styles.tableSection}>
@@ -85,25 +90,37 @@ export default function AdminDashboard() {
                     <div>Timestamp</div>
                     <div>Status</div>
                   </div>
-                  {blockchainLogs.map((log) => (
-                    <div key={log.id} className={styles.tableRow}>
-                      <div>
-                        <code className={styles.hash}>{log.txHash}</code>
+
+                  <div className={styles.tableBody}>
+                    {blockchainLogs.map((log) => (
+                      <div key={log.id} className={styles.tableRow}>
+                        <div>
+                          <code className={styles.hash}>
+                            {log.txHash.slice(0, 12)}...
+                          </code>
+                        </div>
+                        <div>{log.type}</div>
+                        <div>{log.timestamp}</div>
+                        <div>
+                          <span
+                            className={`${styles.badge} ${
+                              log.status === "Confirmed"
+                                ? styles.confirmed
+                                : styles.pending
+                            }`}
+                          >
+                            {log.status}
+                          </span>
+                        </div>
                       </div>
-                      <div>{log.type}</div>
-                      <div>{log.timestamp}</div>
-                      <div>
-                        <span className={`${styles.badge} ${styles.confirmed}`}>
-                          {log.status}
-                        </span>
-                      </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
           )}
 
+          {/* AI Model Health Section */}
           {activeTab === "ai" && (
             <div className={styles.tabContent}>
               <div className={styles.aiHealth}>

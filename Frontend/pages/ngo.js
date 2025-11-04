@@ -1,12 +1,44 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Head from "next/head";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { ngoInventory } from "../lib/mockData";
 import styles from "../styles/Dashboard.module.css";
 import Modal from "../components/Modal";
+import dynamic from "next/dynamic";
+import "leaflet/dist/leaflet.css";
 
 export default function NGODashboard() {
+  const [L, setL] = useState(null);
+
+  useEffect(() => {
+    (async () => {
+      const leaflet = await import("leaflet");
+      setL(leaflet);
+    })();
+  }, []);
+const MapContainer = dynamic(
+  () => import("react-leaflet").then(mod => mod.MapContainer),
+  { ssr: false }
+);
+const TileLayer = dynamic(
+  () => import("react-leaflet").then(mod => mod.TileLayer),
+  { ssr: false }
+);
+const Marker = dynamic(
+  () => import("react-leaflet").then(mod => mod.Marker),
+  { ssr: false }
+);
+const Popup = dynamic(
+  () => import("react-leaflet").then(mod => mod.Popup),
+  { ssr: false }
+);
+
+const ngoLocations = [
+  { name: "Delhi Food Bank", coords: [28.6139, 77.2090] },
+  { name: "Mumbai Relief", coords: [19.0760, 72.8777] },
+  { name: "Bangalore Community", coords: [12.9716, 77.5946] },
+];
   const [showModal, setShowModal] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
 
@@ -34,15 +66,37 @@ export default function NGODashboard() {
 
           <div className={styles.mapSection}>
             <h2 className={styles.sectionTitle}>Live Surplus Map</h2>
-            <div className={styles.mapPlaceholder}>
-              <i className="fas fa-map-marked-alt"></i>
-              <p>Interactive map showing surplus food locations</p>
-              <div className={styles.mapPins}>
-                <span className={styles.mapPin}>📍 Delhi Food Bank</span>
-                <span className={styles.mapPin}>📍 Mumbai Relief</span>
-                <span className={styles.mapPin}>📍 Bangalore Community</span>
-              </div>
-            </div>
+            <div className={styles.mapContainer}>
+  {L && (
+  <MapContainer
+    center={[20.5937, 78.9629]}
+    zoom={5}
+    style={{ height: "400px", width: "100%", borderRadius: "12px" }}
+  >
+    <TileLayer
+      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+    />
+    {ngoLocations.map((ngo, index) => (
+      <Marker
+        key={index}
+        position={ngo.coords}
+        icon={L.icon({
+          iconUrl: "https://cdn-icons-png.flaticon.com/512/684/684908.png",
+          iconSize: [35, 35],
+        })}
+      >
+        <Popup>
+          <strong>{ngo.name}</strong><br />
+          Surplus food available for collection.
+        </Popup>
+      </Marker>
+    ))}
+  </MapContainer>
+)}
+
+</div>
+
           </div>
 
           <div className={styles.actionSection}>

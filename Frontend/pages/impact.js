@@ -43,6 +43,28 @@ export default function ImpactPage() {
     document.querySelectorAll(".stat-card").forEach((card) => {
       observer.observe(card);
     });
+
+    // Animate growth bars when in view
+const growthObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const bar = entry.target.querySelector(`.${styles.barFill}`);
+        if (bar && !bar.classList.contains("filled")) {
+          bar.classList.add("filled");
+          const targetHeight = bar.getAttribute("data-height");
+          bar.style.height = `${targetHeight}%`;
+        }
+      }
+    });
+  },
+  { threshold: 0.3 }
+);
+
+document.querySelectorAll(".growth-bar").forEach((bar) => {
+  growthObserver.observe(bar);
+});
+
   }, []);
 
   return (
@@ -123,15 +145,26 @@ export default function ImpactPage() {
               <i className="fas fa-chart-bar"></i>
               <p>Monthly impact growth visualization</p>
               <div className={styles.barChart}>
-                {[65, 75, 85, 90, 95, 100].map((height, index) => (
-                  <div key={index} className={styles.bar}>
-                    <div
-                      className={styles.barFill}
-                      style={{ height: `${height}%` }}
-                    ></div>
-                  </div>
-                ))}
-              </div>
+  {[
+    { month: "May", value: 65 },
+    { month: "Jun", value: 75 },
+    { month: "Jul", value: 85 },
+    { month: "Aug", value: 90 },
+    { month: "Sep", value: 95 },
+    { month: "Oct", value: 100 },
+  ].map((data, index) => (
+    <div key={index} className={`${styles.bar} growth-bar`}>
+      <div
+        className={styles.barFill}
+        data-height={data.value}
+        style={{ height: "0%" }}
+      ></div>
+      <span className={styles.barValue}>{data.value}%</span>
+      <span className={styles.barLabel}>{data.month}</span>
+    </div>
+  ))}
+</div>
+
             </div>
           </div>
         </div>

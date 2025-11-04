@@ -124,15 +124,15 @@
   color: var(--green-primary);
   margin-bottom: 0.5rem;
 }
-
 .barChart {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  gap: 1rem;
-  height: 200px;
-  margin-top: 2rem;
-  padding: 1rem;
+  gap: 2rem;
+  height: 250px;
+  margin-top: 3rem;
+  padding: 1rem 0;
+  position: relative;
 }
 
 .bar {
@@ -140,31 +140,56 @@
   max-width: 80px;
   height: 100%;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
 }
 
 .barFill {
   width: 100%;
-  background: linear-gradient(
-    180deg,
-    var(--green-primary),
-    var(--blue-primary)
-  );
+  background: linear-gradient(180deg, var(--green-primary), var(--blue-primary));
   border-radius: var(--radius-sm) var(--radius-sm) 0 0;
-  transition: height 0.5s ease;
+  transition: height 1s ease-in-out;
+  height: 0%;
+  box-shadow: 0 4px 10px rgba(0, 128, 0, 0.25);
+}
+
+.barValue {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--green-primary);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.6s ease;
+}
+
+.filled + .barValue {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.barLabel {
+  margin-top: 1rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-align: center;
+  font-size: 1rem;
 }
 
 @media (max-width: 768px) {
-  .heroTitle {
-    font-size: 2rem;
+  .barChart {
+    gap: 1rem;
+    height: 200px;
   }
 
-  .statsGrid {
-    grid-template-columns: 1fr;
+  .barLabel {
+    font-size: 0.9rem;
   }
 
-  .mapStats {
-    flex-direction: column;
-    gap: 1.5rem;
+  .barValue {
+    font-size: 0.9rem;
   }
 }

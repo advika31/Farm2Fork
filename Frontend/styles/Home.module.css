@@ -360,23 +360,66 @@
   position: relative;
 }
 
-.illustrationElements {
-  position: absolute;
+/* ======== IMPACT VISUAL STYLING ======== */
+
+.communityIllustration {
+  position: relative;
   width: 100%;
-  height: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
 }
 
-.impactCta {
-  text-align: center;
-  margin-top: 3rem;
+.impactBackdrop {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  filter: brightness(0.9) saturate(1.1);
 }
 
-@media (max-width: 768px) {
-  .infoCards {
-    grid-template-columns: 1fr;
-  }
+/* Map pin animation */
+.mapPin {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background-color: #00c853;
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(0, 200, 83, 0.8);
+  animation: pulse 2.5s infinite ease-in-out;
+  z-index: 3;
+}
 
-  .heroCtas {
-    flex-direction: column;
-  }
+/* Customize pin locations to match your image */
+.pin1 { top: 25%; left: 30%; }
+.pin2 { top: 40%; left: 55%; }
+.pin3 { top: 60%; left: 70%; }
+.pin4 { top: 50%; left: 15%; }
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.6); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.8; }
+}
+
+/* Overlay text */
+.visualOverlayText {
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  color: white;
+  text-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+  z-index: 4;
+}
+
+.visualOverlayText h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.visualOverlayText p {
+  font-size: 1.1rem;
+  opacity: 0.9;
 }
