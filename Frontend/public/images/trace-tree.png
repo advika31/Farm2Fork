@@ -1,0 +1,9 @@
+# Placeholder for trace-tree.png
+
+This file should be replaced with the actual trace tree image (image_82f00d.jpg renamed to trace-tree.png).
+
+For now, the consumer page will work without the image, but it's recommended to add:
+- A visual representation of the product journey
+- Farm → Processor → Retailer flow diagram
+- Can be an SVG, PNG, or JPG format
+- Recommended size: 800x600px or larger

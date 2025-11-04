@@ -1,0 +1,117 @@
+@import "./Dashboard.module.css";
+
+.dashboard {
+  min-height: 100vh;
+  padding: 120px 2rem 4rem;
+  background: var(--bg-secondary);
+}
+
+.tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--glass-border);
+}
+
+.tab {
+  background: transparent;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition);
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+}
+
+.tab:hover {
+  color: var(--green-primary);
+}
+
+.tab.active {
+  color: var(--green-primary);
+  border-bottom-color: var(--green-primary);
+}
+
+.tabContent {
+  animation: fadeInUp 0.3s ease-out;
+}
+
+.aiHealth {
+  display: grid;
+  gap: 2rem;
+}
+
+.healthCard {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+}
+
+.healthCard h3 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.healthIndicator {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.healthBar {
+  flex: 1;
+  height: 12px;
+  background: var(--bg-secondary);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.healthFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--green-primary), var(--blue-primary));
+  transition: width 0.3s ease;
+}
+
+.graphPlaceholder {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 4rem 2rem;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  color: var(--text-secondary);
+}
+
+.graphPlaceholder i {
+  font-size: 4rem;
+  color: var(--green-primary);
+  margin-bottom: 1rem;
+}
+
+.graphNote {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.hash {
+  background: var(--bg-secondary);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-family: monospace;
+  font-size: 0.85rem;
+}
+
+.confirmed {
+  background: var(--green-primary);
+  color: white;
+}

@@ -1,0 +1,176 @@
+.consumer {
+  min-height: 100vh;
+  padding: 120px 2rem 4rem;
+  background: var(--bg-secondary);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.heroTitle {
+  font-family: "Poppins", sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.heroSubtitle {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+}
+
+.traceTree {
+  position: relative;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: 4rem 2rem;
+  margin-bottom: 3rem;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+}
+
+.treeImage {
+  max-width: 100%;
+  height: auto;
+  opacity: 0.3;
+  position: absolute;
+  z-index: 1;
+}
+
+.treeNode {
+  position: absolute;
+  background: var(--green-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 10;
+  transition: var(--transition);
+  box-shadow: var(--shadow-md);
+}
+
+.treeNode:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-lg);
+}
+
+.treeNode i {
+  font-size: 2rem;
+}
+
+.impactMessage {
+  margin-top: 3rem;
+}
+
+.impactCard {
+  background: linear-gradient(
+    135deg,
+    var(--green-primary),
+    var(--blue-primary)
+  );
+  color: white;
+  padding: 2.5rem;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  box-shadow: var(--shadow-lg);
+}
+
+.impactCard i {
+  font-size: 3rem;
+}
+
+.impactCard h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.impactCard p {
+  font-size: 1.1rem;
+  opacity: 0.95;
+}
+
+.nodeDetails {
+  color: var(--text-primary);
+}
+
+.nodeDetails h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.detailItem {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.detailItem strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.hash {
+  display: block;
+  background: var(--bg-secondary);
+  padding: 0.5rem;
+  border-radius: var(--radius-sm);
+  font-family: monospace;
+  word-break: break-all;
+  color: var(--text-primary);
+}
+
+.imagePlaceholder {
+  background: var(--bg-secondary);
+  padding: 3rem;
+  border-radius: var(--radius-md);
+  text-align: center;
+  margin-top: 1rem;
+  color: var(--text-secondary);
+}
+
+.imagePlaceholder i {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .traceTree {
+    padding: 2rem 1rem;
+    min-height: 400px;
+  }
+
+  .treeNode {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .impactCard {
+    flex-direction: column;
+    text-align: center;
+  }
+}

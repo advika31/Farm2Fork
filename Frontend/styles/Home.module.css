@@ -1,0 +1,382 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 120px 2rem 4rem;
+  overflow: hidden;
+}
+
+.heroBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.gradientOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(52, 199, 89, 0.05) 0%,
+    rgba(0, 122, 255, 0.05) 50%,
+    rgba(255, 214, 10, 0.05) 100%
+  );
+}
+
+.patternOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.03;
+}
+
+.patternLeaf,
+.patternNodes,
+.patternTruck {
+  position: absolute;
+  font-size: 200px;
+  color: var(--green-primary);
+  opacity: 0.03;
+}
+
+.patternLeaf {
+  top: 10%;
+  left: 5%;
+  animation: float 20s infinite ease-in-out;
+}
+
+.patternNodes {
+  top: 50%;
+  right: 10%;
+  animation: float 25s infinite ease-in-out reverse;
+}
+
+.patternTruck {
+  bottom: 15%;
+  left: 50%;
+  animation: float 30s infinite ease-in-out;
+}
+
+.heroContent {
+  max-width: 1200px;
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+}
+
+.heroHeadline {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  background: linear-gradient(
+    135deg,
+    var(--text-primary) 0%,
+    var(--green-primary) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heroSubtext {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  line-height: 1.6;
+}
+
+.infoCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.infoCard {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  text-align: left;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.infoCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, currentColor, transparent);
+  opacity: 0.3;
+}
+
+.infoCard:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.greenCard {
+  color: white;
+  background: linear-gradient(135deg, var(--green-primary), var(--green-dark));
+}
+
+.blueCard {
+  color: white;
+  background: linear-gradient(135deg, var(--blue-primary), var(--blue-dark));
+}
+
+.yellowCard {
+  color: var(--text-primary);
+  background: linear-gradient(
+    135deg,
+    var(--yellow-primary),
+    var(--yellow-dark)
+  );
+}
+
+.cardIcon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+.cardText {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.heroCtas {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.howItWorks {
+  padding: 6rem 2rem;
+  background: var(--bg-secondary);
+  position: relative;
+}
+
+.sectionContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.sectionSubtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: 4rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.workflow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 4rem;
+  position: relative;
+}
+
+.workflowCard {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  position: relative;
+}
+
+.workflowCard:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.workflowIcon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  background: linear-gradient(
+    135deg,
+    var(--green-primary),
+    var(--blue-primary)
+  );
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
+  box-shadow: var(--shadow-glow);
+}
+
+.workflowTitle {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.workflowText {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.workflowArrow {
+  position: absolute;
+  right: -1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: var(--green-primary);
+  z-index: 10;
+}
+
+@media (max-width: 768px) {
+  .workflowArrow {
+    display: none;
+  }
+}
+
+.impact {
+  padding: 6rem 2rem;
+  background: linear-gradient(
+    135deg,
+    rgba(52, 199, 89, 0.05) 0%,
+    rgba(0, 122, 255, 0.05) 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.impactStats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.statCard {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+}
+
+.statCard:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--shadow-lg);
+}
+
+.statIcon {
+  font-size: 3rem;
+  color: var(--green-primary);
+  margin-bottom: 1rem;
+}
+
+.statValue {
+  font-family: "Poppins", sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--green-primary);
+  margin-bottom: 0.5rem;
+}
+
+.statLabel {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.impactVisual {
+  margin: 4rem 0;
+  height: 400px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.communityIllustration {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(52, 199, 89, 0.1) 0%,
+    rgba(0, 122, 255, 0.1) 50%,
+    rgba(255, 214, 10, 0.1) 100%
+  );
+  position: relative;
+}
+
+.illustrationElements {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.impactCta {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+@media (max-width: 768px) {
+  .infoCards {
+    grid-template-columns: 1fr;
+  }
+
+  .heroCtas {
+    flex-direction: column;
+  }
+}
