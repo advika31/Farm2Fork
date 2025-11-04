@@ -1,0 +1,30 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- QR Code Pattern -->
+  <g fill="#34C759" opacity="0.8">
+    <!-- Corner squares -->
+    <rect x="10" y="10" width="25" height="25" rx="3"/>
+    <rect x="85" y="10" width="25" height="25" rx="3"/>
+    <rect x="10" y="85" width="25" height="25" rx="3"/>
+    <!-- Inner squares -->
+    <rect x="16" y="16" width="13" height="13"/>
+    <rect x="91" y="16" width="13" height="13"/>
+    <rect x="16" y="91" width="13" height="13"/>
+    <!-- QR pattern -->
+    <rect x="45" y="10" width="5" height="25"/>
+    <rect x="55" y="10" width="5" height="25"/>
+    <rect x="70" y="10" width="5" height="25"/>
+    <rect x="10" y="45" width="25" height="5"/>
+    <rect x="10" y="55" width="25" height="5"/>
+    <rect x="10" y="70" width="25" height="5"/>
+    <rect x="45" y="45" width="5" height="5"/>
+    <rect x="55" y="55" width="5" height="5"/>
+    <rect x="70" y="70" width="5" height="5"/>
+  </g>
+  
+  <!-- Leaf Overlay -->
+  <path d="M 60 30 Q 50 50, 60 70 Q 70 50, 60 30" fill="#4ADE80" stroke="#2BA048" stroke-width="2" opacity="0.9">
+    <animate attributeName="opacity" values="0.9;1;0.9" dur="3s" repeatCount="indefinite"/>
+  </path>
+  <!-- Leaf vein -->
+  <path d="M 60 30 Q 60 45, 60 70" stroke="#2BA048" stroke-width="1.5" fill="none" opacity="0.7"/>
+</svg>
