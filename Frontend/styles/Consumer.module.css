@@ -18,8 +18,8 @@
   font-family: "Poppins", sans-serif;
   font-size: 3rem;
   font-weight: 700;
-  margin-bottom: 1rem;
   color: var(--text-primary);
+  margin-bottom: 1rem;
 }
 
 .heroSubtitle {
@@ -27,66 +27,118 @@
   color: var(--text-secondary);
 }
 
+/* TRACE TREE */
 .traceTree {
   position: relative;
   background: var(--glass-bg);
   backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-xl);
-  padding: 4rem 2rem;
+  padding: 3rem 1rem;
   margin-bottom: 3rem;
-  min-height: 600px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  min-height: 400px;
   box-shadow: var(--shadow-md);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.treeImage {
-  max-width: 100%;
-  height: auto;
-  opacity: 0.3;
-  position: absolute;
-  z-index: 1;
+.traceContainer {
+  position: relative;
+  width: 80%;
+  max-width: 900px;
+  height: 200px;
+}
+
+.traceNodes {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  z-index: 2;
 }
 
 .treeNode {
-  position: absolute;
   background: var(--green-primary);
-  color: white;
+  color: #fff;
   border: none;
-  border-radius: var(--radius-md);
+  border-radius: 12px;
   padding: 1rem 1.5rem;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
-  z-index: 10;
-  transition: var(--transition);
-  box-shadow: var(--shadow-md);
+  gap: 0.4rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 128, 0, 0.3);
 }
 
 .treeNode:hover {
-  transform: scale(1.1);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 128, 0, 0.4);
 }
 
 .treeNode i {
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 
+/* CONNECTOR LINES */
+.connectorLines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  stroke: var(--green-primary);
+  stroke-width: 3;
+  fill: none;
+  z-index: 1;
+  animation: drawLine 1.5s ease-in-out forwards;
+}
+
+@keyframes drawLine {
+  from {
+    stroke-dasharray: 10;
+    stroke-dashoffset: 100;
+  }
+  to {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 0;
+  }
+}
+
+/* RESPONSIVE FIX */
+@media (max-width: 768px) {
+  .traceContainer {
+    width: 95%;
+    height: 300px;
+    flex-direction: column;
+  }
+
+  .traceNodes {
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .connectorLines {
+    display: none;
+  }
+
+  .treeNode {
+    width: 160px;
+  }
+}
+
+
+/* IMPACT */
 .impactMessage {
   margin-top: 3rem;
 }
 
 .impactCard {
-  background: linear-gradient(
-    135deg,
-    var(--green-primary),
-    var(--blue-primary)
-  );
-  color: white;
+  background: linear-gradient(135deg, var(--green-primary), var(--blue-primary));
+  color: #fff;
   padding: 2.5rem;
   border-radius: var(--radius-lg);
   display: flex;
@@ -109,12 +161,12 @@
   opacity: 0.95;
 }
 
+/* NODE DETAILS MODAL */
 .nodeDetails {
   color: var(--text-primary);
 }
 
 .nodeDetails h2 {
-  font-family: "Poppins", sans-serif;
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
 }
@@ -127,7 +179,6 @@
 .detailItem strong {
   display: block;
   margin-bottom: 0.5rem;
-  color: var(--text-primary);
 }
 
 .hash {
@@ -137,7 +188,11 @@
   border-radius: var(--radius-sm);
   font-family: monospace;
   word-break: break-all;
-  color: var(--text-primary);
+}
+
+.nodeImage {
+  margin-top: 1rem;
+  border-radius: var(--radius-md);
 }
 
 .imagePlaceholder {
@@ -154,6 +209,7 @@
   margin-bottom: 1rem;
 }
 
+/* RESPONSIVE */
 @media (max-width: 768px) {
   .heroTitle {
     font-size: 2rem;
