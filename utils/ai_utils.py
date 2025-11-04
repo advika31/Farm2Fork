@@ -10,3 +10,4 @@ def predict_nutrition(crop_type: str) -> float:
     return round(random.uniform(low, high), 2)
 
 
+

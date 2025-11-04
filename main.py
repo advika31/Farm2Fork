@@ -12,6 +12,7 @@ from routes.farmers import router as farmers_router
 from routes.batches import router as batches_router
 from routes.surplus import router as surplus_router
 from routes.consumer import router as consumer_router
+from routes.blockchain import router as blockchain_router
 
 
 # Ensure DB tables exist
@@ -38,6 +39,7 @@ app.include_router(farmers_router)
 app.include_router(batches_router)
 app.include_router(surplus_router)
 app.include_router(consumer_router)
+app.include_router(blockchain_router)
 
 
 @app.get("/seed", tags=["demo"])

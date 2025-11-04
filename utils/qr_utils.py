@@ -11,3 +11,4 @@ def generate_qr(batch_id: int, data: dict):
     return path
 
 
+
