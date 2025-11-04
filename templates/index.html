@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      TraceRoots - AI-Verified Food Traceability & Zero-Waste Network
+    </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body class="light-mode">
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <img
+            src="/static/images/traceroots-logo.svg"
+            alt="TraceRoots"
+            class="logo-img"
+            onerror="this.style.display='none'"
+          />
+          <span class="logo-text">TraceRoots</span>
+        </div>
+        <div class="nav-links">
+          <a href="#how-it-works" class="nav-link">How It Works</a>
+          <a href="#impact" class="nav-link">Our Impact</a>
+          <a href="#network" class="nav-link">Network</a>
+          <button class="btn-outline nav-btn">Farmer Login</button>
+          <button class="btn-primary nav-btn">Sign Up</button>
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle theme"
+          >
+            <i class="fas fa-moon"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-background">
+        <div class="gradient-overlay"></div>
+        <div class="pattern-overlay">
+          <div class="pattern-leaf"></div>
+          <div class="pattern-nodes"></div>
+          <div class="pattern-truck"></div>
+        </div>
+      </div>
+      <div class="hero-content">
+        <h1 class="hero-headline">
+          AI-Verified Authenticity. Zero-Waste Impact.
+        </h1>
+        <p class="hero-subtext">
+          TraceRoots uses AI fingerprints and blockchain to verify food origins
+          and ensure surplus reaches those in need.
+        </p>
+
+        <div class="info-cards">
+          <div class="info-card green-card">
+            <div class="card-icon">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <p class="card-text">
+              Batch #T-8192 (Tomatoes) just verified from GreenAcres Farm.
+            </p>
+          </div>
+          <div class="info-card blue-card">
+            <div class="card-icon">
+              <i class="fas fa-truck"></i>
+            </div>
+            <p class="card-text">
+              AI Route Optimized: 20kg surplus from FreshDistro headed to Delhi
+              Food Bank.
+            </p>
+          </div>
+          <div class="info-card yellow-card">
+            <div class="card-icon">
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="card-text">
+              +50 Impact Tokens just awarded to GreenAcres for their donation.
+            </p>
+          </div>
+        </div>
+
+        <div class="hero-ctas">
+          <button class="btn-primary btn-large">Trace Your Product</button>
+          <button class="btn-outline btn-large">Join Us as a Farmer</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+      <div class="section-container">
+        <h2 class="section-title">How It Works</h2>
+        <div class="workflow">
+          <div class="workflow-card">
+            <div class="workflow-icon">
+              <i class="fas fa-user-tie"></i>
+            </div>
+            <h3 class="workflow-title">The Farm</h3>
+            <p class="workflow-text">
+              AI generates a Digital Fingerprint from crop images, nutrients,
+              and origin.
+            </p>
+            <div class="workflow-arrow">
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+
+          <div class="workflow-card">
+            <div class="workflow-icon">
+              <i class="fas fa-link"></i>
+            </div>
+            <h3 class="workflow-title">The Blockchain</h3>
+            <p class="workflow-text">
+              Fingerprint is secured and verified immutably.
+            </p>
+            <div class="workflow-arrow">
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+
+          <div class="workflow-card">
+            <div class="workflow-icon">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h3 class="workflow-title">The Consumer</h3>
+            <p class="workflow-text">
+              Consumers trace the full journey with one scan.
+            </p>
+            <div class="workflow-arrow">
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+
+          <div class="workflow-card">
+            <div class="workflow-icon">
+              <i class="fas fa-sync-alt"></i>
+            </div>
+            <h3 class="workflow-title">The Impact Loop</h3>
+            <p class="workflow-text">
+              AI routes surplus food to NGOs, rewarding farmers with Impact
+              Tokens.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section id="impact" class="impact">
+      <div class="section-container">
+        <h2 class="section-title">Our Commitment to a Sustainable Future</h2>
+        <p class="section-subtitle">
+          Empowering farmers, feeding communities, and protecting the planet.
+        </p>
+
+        <div class="impact-stats">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-seedling"></i>
+            </div>
+            <div class="stat-value" data-target="{{ stats.food_rescued_kg }}">
+              0
+            </div>
+            <div class="stat-label">KG Food Rescued</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-utensils"></i>
+            </div>
+            <div class="stat-value" data-target="{{ stats.meals_delivered }}">
+              0
+            </div>
+            <div class="stat-label">Meals Delivered</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="stat-value" data-target="{{ stats.farmers_count }}">
+              0
+            </div>
+            <div class="stat-label">Farmers in Our Network</div>
+          </div>
+        </div>
+
+        <div class="impact-visual">
+          <div class="community-illustration">
+            <div class="illustration-elements">
+              <div class="illustration-farm"></div>
+              <div class="illustration-community"></div>
+              <div class="illustration-food"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="impact-cta">
+          <button class="btn-primary btn-large">
+            View Our Full Impact Report
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-links">
+          <div class="footer-column">
+            <h4>Company</h4>
+            <a href="#about">About Us</a>
+            <a href="#careers">Careers</a>
+            <a href="#press">Press</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <div class="footer-column">
+            <h4>Legal</h4>
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#terms">Terms of Service</a>
+          </div>
+          <div class="footer-column">
+            <h4>Connect</h4>
+            <div class="social-links">
+              <a href="#" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+              <a href="#" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 TraceRoots. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/static/js/main.js"></script>
+  </body>
+</html>
